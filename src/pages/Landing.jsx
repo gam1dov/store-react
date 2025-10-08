@@ -1,5 +1,21 @@
+import { Hero } from "../components";
+import { customFetch } from "../utils";
+
+const url = "/products?featured=true";
+
+export async function loader() {
+  const response = await customFetch(url);
+  const products = response.data.data;
+
+  return products;
+}
+
 function Landing() {
-  return <div>Landing</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
 
 export default Landing;
