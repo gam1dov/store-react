@@ -1,4 +1,4 @@
-function FormInput({ label, name, type, defaultValue }) {
+function FormInput({ label, name, type, defaultValue, size }) {
   return (
     <fieldset className="fieldset">
       <legend className="fieldset-legend">{label}</legend>
@@ -6,7 +6,7 @@ function FormInput({ label, name, type, defaultValue }) {
         type={type}
         name={name}
         defaultValue={defaultValue}
-        className="input"
+        className={`input input-bordered ${size}`}
       />
     </fieldset>
   );
