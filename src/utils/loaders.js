@@ -18,9 +18,14 @@ export async function singleProductLoader({ params }) {
 }
 
 export async function productsLoader({ request }) {
-  const response = await customFetch(productsUrl);
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+  const response = await customFetch(productsUrl, {
+    params,
+  });
   const products = response.data.data;
   const meta = response.data.meta;
 
-  return { products, meta };
+  return { products, meta, params };
 }
