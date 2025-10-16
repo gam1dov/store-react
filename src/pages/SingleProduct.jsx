@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import { useLoaderData } from "react-router-dom";
 import { formatPrice, generateArrayElements } from "../utils";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/cartSlice";
 
 function SingleProduct() {
   const { product } = useLoaderData();
@@ -13,6 +15,23 @@ function SingleProduct() {
 
   function handleAmount(e) {
     setAmount(parseInt(e.target.value));
+  }
+
+  const cartProduct = {
+    cardID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    price,
+    company,
+    productColor,
+    amount,
+  };
+
+  const dispatch = useDispatch();
+
+  function addToCart() {
+    dispatch(addItem({ product: cartProduct }));
   }
 
   return (
@@ -82,10 +101,7 @@ function SingleProduct() {
             </select>
           </div>
           <div className="mt-3">
-            <button
-              className="btn btn-secondary btn-md"
-              onClick={() => console.log("Добавить в корзину")}
-            >
+            <button className="btn btn-secondary btn-md" onClick={addToCart}>
               Добавить в корзину
             </button>
           </div>
