@@ -18,7 +18,7 @@ function SingleProduct() {
   }
 
   const cartProduct = {
-    cardID: product.id + productColor,
+    cartID: product.id + productColor,
     productID: product.id,
     image,
     title,

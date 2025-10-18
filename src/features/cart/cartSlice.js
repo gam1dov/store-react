@@ -30,6 +30,7 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.calculateTotals(state);
       toast("Товар добавлен в корзину");
     },
+
     clearCart() {
       localStorage.setItem("cart", JSON.stringify(defaultState));
       return defaultState;
@@ -59,6 +60,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, clearCart, removeItem, editItem } = cartSlice.actions;
+export const { addItem, clearCart, removeItem, editItem, calculateTotals } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
