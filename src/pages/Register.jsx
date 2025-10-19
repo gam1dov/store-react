@@ -1,6 +1,10 @@
 import { Form, Link } from "react-router";
 import { FormInput, SubmitBtn } from "../components";
 
+// export const action = async () => {
+//   return null;
+// };
+
 function Register() {
   return (
     <section className="h-screen grid place-items-center">

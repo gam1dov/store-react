@@ -22,6 +22,9 @@ import {
   productsLoader,
 } from "./utils/loaders";
 
+// import { action as registerAction } from "./pages/Register";
+import { registerAction } from "./utils/actions";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +56,12 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/login", element: <Login />, errorElement: <Error /> },
-  { path: "/register", element: <Register />, errorElement: <Error /> },
+  {
+    path: "/register",
+    element: <Register />,
+    errorElement: <Error />,
+    action: registerAction,
+  },
 ]);
 
 function App() {
