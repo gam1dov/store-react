@@ -20,6 +20,7 @@ import {
   landingLoader,
   singleProductLoader,
   productsLoader,
+  checkoutLoader,
 } from "./utils/loaders";
 
 import { loginAction, registerAction } from "./utils/actions";
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
       },
       { path: "cart", element: <Cart /> },
       { path: "about", element: <About /> },
-      { path: "checkout", element: <Checkout /> },
+      {
+        path: "checkout",
+        element: <Checkout />,
+        loader: checkoutLoader(store),
+      },
       { path: "orders", element: <Orders /> },
     ],
   },

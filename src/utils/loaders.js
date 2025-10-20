@@ -1,3 +1,4 @@
+import { redirect } from "react-router";
 import { customFetch } from "./index";
 
 const landingUrl = "/products?featured=true";
@@ -28,4 +29,14 @@ export async function productsLoader({ request }) {
   const meta = response.data.meta;
 
   return { products, meta, params };
+}
+
+export function checkoutLoader(store) {
+  return function () {
+    const user = store.getState().userState.user;
+    if (!user) {
+      return redirect("/login");
+    }
+    return null;
+  };
 }
