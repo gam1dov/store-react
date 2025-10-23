@@ -21,6 +21,7 @@ import {
   singleProductLoader,
   productsLoader,
   checkoutLoader,
+  ordersLoader,
 } from "./utils/loaders";
 
 import { loginAction, registerAction, checkoutAction } from "./utils/actions";
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
         loader: checkoutLoader(store),
         action: checkoutAction(store),
       },
-      { path: "orders", element: <Orders /> },
+      { path: "orders", element: <Orders />, loader: ordersLoader(store) },
     ],
   },
   {
