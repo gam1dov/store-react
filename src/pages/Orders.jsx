@@ -1,5 +1,9 @@
 import { useLoaderData } from "react-router";
-import { OrdersList, PaginationContainer, SectionTitle } from "../components";
+import {
+  OrdersList,
+  ComplexPaginationContainer,
+  SectionTitle,
+} from "../components";
 
 function Orders() {
   const { meta } = useLoaderData();
@@ -11,7 +15,7 @@ function Orders() {
     <>
       <SectionTitle text="Ваши заказы" />
       <OrdersList />
-      <PaginationContainer />
+      <ComplexPaginationContainer />
     </>
   );
 }
